@@ -159,7 +159,7 @@ Pod::Spec.new do |spec|
     ss.dependency 'DTFoundation/Privacy'
   end
 
-  s.subspec 'Privacy' do |ss|
+  spec.subspec 'Privacy' do |ss|
       ss.resource_bundles = {
         "Privacy" => 'Core/PrivacyInfo.xcprivacy'
       }
