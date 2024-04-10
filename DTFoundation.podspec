@@ -1,12 +1,12 @@
 Pod::Spec.new do |spec|
   spec.name         = 'DTFoundation'
-  spec.version      = '1.7.18'
+  spec.version      = '1.8.0'
   spec.summary      = "Standard toolset classes and categories."
-  spec.homepage     = "https://github.com/Cocoanetics/DTFoundation"
+  spec.homepage     = "https://github.com/castbox/DTFoundation"
   spec.author       = { "Oliver Drobnik" => "oliver@cocoanetics.com" }
   spec.documentation_url = 'http://docs.cocoanetics.com/DTFoundation'
   spec.social_media_url = 'https://twitter.com/cocoanetics'
-  spec.source       = { :git => "https://github.com/Cocoanetics/DTFoundation.git", :tag => spec.version.to_s }
+  spec.source       = { :git => "https://github.com/castbox/DTFoundation.git", :tag => spec.version.to_s }
   
   spec.ios.deployment_target = '9.0'
   spec.tvos.deployment_target = '9.0'
@@ -19,6 +19,7 @@ Pod::Spec.new do |spec|
     ss.tvos.deployment_target = '9.0'
     ss.osx.deployment_target = '10.8'
     ss.source_files = 'Core/Source/*.{h,m}'
+    ss.dependency 'DTFoundation/Privacy'
   end
 
   spec.subspec 'UIKit' do |ss|
@@ -47,6 +48,7 @@ Pod::Spec.new do |spec|
     ss.tvos.deployment_target = '9.0'
     ss.frameworks = 'ImageIO'
     ss.source_files = 'Core/Source/iOS/DTAnimatedGIF/*.{h,m}'
+    ss.dependency 'DTFoundation/Privacy'
   end
 
   spec.subspec 'DTAWS' do |ss|
@@ -103,6 +105,7 @@ Pod::Spec.new do |spec|
     ss.osx.deployment_target = '10.8'
     ss.ios.frameworks = ['MobileCoreServices']
     ss.source_files = 'Core/Source/DTUTI/*.{h,m}'
+    ss.dependency 'DTFoundation/Privacy'
   end
 
   spec.subspec 'DTZipArchive' do |ss|
@@ -116,12 +119,13 @@ Pod::Spec.new do |spec|
       sss.source_files = 'Core/Source/Externals/minizip/*.{h,c}'
       sss.private_header_files = 'Core/Source/Externals/minizip/*.h'
     end
+    ss.dependency 'DTFoundation/Privacy'
   end
 
   spec.subspec 'DTProgressHUD' do |ss|
     ss.platform = :ios, '6.0'
     ss.dependency 'DTFoundation/UIKit'
-	  ss.dependency 'DTFoundation/Core'
+    ss.dependency 'DTFoundation/Core'
     ss.ios.frameworks = 'QuartzCore'
     ss.ios.source_files = 'Core/Source/iOS/DTProgressHUD/*.{h,m}'
   end
@@ -152,6 +156,12 @@ Pod::Spec.new do |spec|
     ss.ios.deployment_target = '4.3'
     ss.osx.deployment_target = '10.8'
     ss.source_files = 'Core/Source/Runtime/*.{h,m}'
+    ss.dependency 'DTFoundation/Privacy'
   end
 
+  s.subspec 'Privacy' do |ss|
+      ss.resource_bundles = {
+        "Privacy" => 'Core/PrivacyInfo.xcprivacy'
+      }
+  end
 end

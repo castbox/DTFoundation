@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -22,6 +22,7 @@ let package = Package(
             dependencies: [],
             path: "Core",
 			exclude: ["DTFoundation-Info.plist", "DTFoundation-Prefix.pch"],
+            resources: [.process("PrivacyInfo.xcprivacy")],
             cSettings: [
                 .headerSearchPath("include/DTFoundation"),
                 .headerSearchPath("Source/Externals/minizip"),
