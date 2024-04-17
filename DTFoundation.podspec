@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'DTFoundation'
-  spec.version      = '1.8.0'
+  spec.version      = '1.8.1'
   spec.summary      = "Standard toolset classes and categories."
   spec.homepage     = "https://github.com/castbox/DTFoundation"
   spec.author       = { "Oliver Drobnik" => "oliver@cocoanetics.com" }
@@ -161,7 +161,7 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'Privacy' do |ss|
       ss.resource_bundles = {
-        "Privacy" => 'Core/PrivacyInfo.xcprivacy'
+          spec.name => 'Core/PrivacyInfo.xcprivacy'
       }
   end
 end
